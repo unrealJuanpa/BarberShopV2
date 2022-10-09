@@ -60,7 +60,16 @@ SELECT IdArticulo, Nombre, Descripcion, Enabled FROM Articulo WHERE (IdArticulo 
               <Mapping SourceColumn="Descripcion" DataSetColumn="Descripcion" />
               <Mapping SourceColumn="Enabled" DataSetColumn="Enabled" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="DatabaseBarberShopConnectionString" DbObjectName="dbo.Articulo" DbObjectType="Table" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByEnabled" GetMethodModifier="Public" GetMethodName="GetDataByEnabled" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByEnabled" UserSourceName="GetDataByEnabled">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT IdArticulo, Nombre, Descripcion FROM dbo.Articulo Where Enabled = 1</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ClienteTableAdapter" GeneratorDataComponentClassName="ClienteTableAdapter" Name="Cliente" UserDataComponentName="ClienteTableAdapter">
             <MainSource>
@@ -122,7 +131,16 @@ SELECT IdCliente, NombreCliente, ApellidoCliente, Telefono, Enabled FROM Cliente
               <Mapping SourceColumn="Telefono" DataSetColumn="Telefono" />
               <Mapping SourceColumn="Enabled" DataSetColumn="Enabled" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="DatabaseBarberShopConnectionString" DbObjectName="dbo.Cliente" DbObjectType="Table" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByEnabled" GetMethodModifier="Public" GetMethodName="GetDataByEnabled" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByEnabled" UserSourceName="GetDataByEnabled">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT IdCliente, NombreCliente, ApellidoCliente, Telefono FROM dbo.Cliente Where Enabled = 1</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="EmpleadoTableAdapter" GeneratorDataComponentClassName="EmpleadoTableAdapter" Name="Empleado" UserDataComponentName="EmpleadoTableAdapter">
             <MainSource>
@@ -197,7 +215,16 @@ SELECT CUI, NombreEmpleado, ApellidoEmpleado, Direccion, Telefono, Enabled, IdRo
               <Mapping SourceColumn="Enabled" DataSetColumn="Enabled" />
               <Mapping SourceColumn="IdRol" DataSetColumn="IdRol" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="DatabaseBarberShopConnectionString" DbObjectName="dbo.Empleado" DbObjectType="Table" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByEnabled" GetMethodModifier="Public" GetMethodName="GetDataByEnabled" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByEnabled" UserSourceName="GetDataByEnabled">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT CUI, NombreEmpleado, ApellidoEmpleado, Direccion, Telefono, IdRol FROM dbo.Empleado Where Enabled = 1</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="PromocionTableAdapter" GeneratorDataComponentClassName="PromocionTableAdapter" Name="Promocion" UserDataComponentName="PromocionTableAdapter">
             <MainSource>
@@ -274,7 +301,24 @@ SELECT IdPromocion, Nombre, ProcentajeDescuento, Descripcion, FechaHoraInicio, F
               <Mapping SourceColumn="Enabled" DataSetColumn="Enabled" />
               <Mapping SourceColumn="IdTratamiento" DataSetColumn="IdTratamiento" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="DatabaseBarberShopConnectionString" DbObjectName="dbo.Promocion" DbObjectType="Table" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByEnabled" GetMethodModifier="Public" GetMethodName="GetDataByEnabled" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByEnabled" UserSourceName="GetDataByEnabled">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT IdPromocion, Nombre, ProcentajeDescuento, Descripcion, FechaHoraInicio, FechaHoraFin, IdTratamiento FROM dbo.Promocion Where Enabled = 1</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="DatabaseBarberShopConnectionString" DbObjectName="dbo.Promocion" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="ScalarQueryGetValidDiscount" Modifier="Public" Name="ScalarQueryGetValidDiscount" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="ScalarQueryGetValidDiscount">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT TOP 1 ProcentajeDescuento FROM Promocion Where GETDATE() between FechaHoraInicio and FechaHoraFin</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ProveedorTableAdapter" GeneratorDataComponentClassName="ProveedorTableAdapter" Name="Proveedor" UserDataComponentName="ProveedorTableAdapter">
             <MainSource>
@@ -331,7 +375,16 @@ SELECT IdProveedor, Nombre, Telefono, Enabled FROM Proveedor WHERE (IdProveedor 
               <Mapping SourceColumn="Telefono" DataSetColumn="Telefono" />
               <Mapping SourceColumn="Enabled" DataSetColumn="Enabled" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="DatabaseBarberShopConnectionString" DbObjectName="dbo.Proveedor" DbObjectType="Table" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByEnabled" GetMethodModifier="Public" GetMethodName="GetDataByEnabled" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByEnabled" UserSourceName="GetDataByEnabled">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT IdProveedor, Nombre, Telefono FROM dbo.Proveedor Where Enabled = 1</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="RegistroAplicacionTableAdapter" GeneratorDataComponentClassName="RegistroAplicacionTableAdapter" Name="RegistroAplicacion" UserDataComponentName="RegistroAplicacionTableAdapter">
             <MainSource>
@@ -409,7 +462,16 @@ SELECT IdRegistro, FechaHora, CostoFinal, Enabled, IdTratamiento, IdCliente, CUI
               <Mapping SourceColumn="IdCliente" DataSetColumn="IdCliente" />
               <Mapping SourceColumn="CUI" DataSetColumn="CUI" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="DatabaseBarberShopConnectionString" DbObjectName="dbo.RegistroAplicacion" DbObjectType="Table" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByEnabled" GetMethodModifier="Public" GetMethodName="GetDataByEnabled" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByEnabled" UserSourceName="GetDataByEnabled">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT IdRegistro, FechaHora, CostoFinal, IdTratamiento, IdCliente, CUI FROM dbo.RegistroAplicacion Where Enabled = 1</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="RegistroCompraTableAdapter" GeneratorDataComponentClassName="RegistroCompraTableAdapter" Name="RegistroCompra" UserDataComponentName="RegistroCompraTableAdapter">
             <MainSource>
@@ -485,7 +547,30 @@ SELECT IdCompra, FechaHora, Unidades, CostoTotal, Enabled, IdArticulo, IdProveed
               <Mapping SourceColumn="IdArticulo" DataSetColumn="IdArticulo" />
               <Mapping SourceColumn="IdProveedor" DataSetColumn="IdProveedor" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="DatabaseBarberShopConnectionString" DbObjectName="dbo.RegistroCompra" DbObjectType="Table" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByEnabled" GetMethodModifier="Public" GetMethodName="GetDataByEnabled" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByEnabled" UserSourceName="GetDataByEnabled">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT IdCompra, FechaHora, Unidades, CostoTotal, IdArticulo, IdProveedor FROM dbo.RegistroCompra Where Enabled = 1</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="DatabaseBarberShopConnectionString" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertQueryWithCurrentDateTime" Modifier="Public" Name="InsertQueryWithCurrentDateTime" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="InsertQueryWithCurrentDateTime">
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>INSERT INTO [dbo].[RegistroCompra] ([FechaHora], [Unidades], [CostoTotal], [Enabled], [IdArticulo], [IdProveedor]) VALUES (GETDATE(), @Unidades, @CostoTotal, @Enabled, @IdArticulo, @IdProveedor)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Unidades" ColumnName="Unidades" DataSourceName="[C:\USERS\JUANP\SOURCE\REPOS\BARBERSHOPV2\DB\DATABASEBARBERSHOP.MDF].dbo.RegistroCompra" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@Unidades" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="Unidades" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="CostoTotal" ColumnName="CostoTotal" DataSourceName="[C:\USERS\JUANP\SOURCE\REPOS\BARBERSHOPV2\DB\DATABASEBARBERSHOP.MDF].dbo.RegistroCompra" DataTypeServer="float" DbType="Double" Direction="Input" ParameterName="@CostoTotal" Precision="0" ProviderType="Float" Scale="0" Size="8" SourceColumn="CostoTotal" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Enabled" ColumnName="Enabled" DataSourceName="[C:\USERS\JUANP\SOURCE\REPOS\BARBERSHOPV2\DB\DATABASEBARBERSHOP.MDF].dbo.RegistroCompra" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@Enabled" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="Enabled" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="IdArticulo" ColumnName="IdArticulo" DataSourceName="[C:\USERS\JUANP\SOURCE\REPOS\BARBERSHOPV2\DB\DATABASEBARBERSHOP.MDF].dbo.RegistroCompra" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@IdArticulo" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="IdArticulo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="IdProveedor" ColumnName="IdProveedor" DataSourceName="[C:\USERS\JUANP\SOURCE\REPOS\BARBERSHOPV2\DB\DATABASEBARBERSHOP.MDF].dbo.RegistroCompra" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@IdProveedor" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="IdProveedor" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="RetiroBodegaTableAdapter" GeneratorDataComponentClassName="RetiroBodegaTableAdapter" Name="RetiroBodega" UserDataComponentName="RetiroBodegaTableAdapter">
             <MainSource>
@@ -556,7 +641,29 @@ SELECT IdRetiro, Cantidad, FechaHora, Enabled, CUI, IdArticulo FROM RetiroBodega
               <Mapping SourceColumn="CUI" DataSetColumn="CUI" />
               <Mapping SourceColumn="IdArticulo" DataSetColumn="IdArticulo" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="DatabaseBarberShopConnectionString" DbObjectName="dbo.RetiroBodega" DbObjectType="Table" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByEnabled" GetMethodModifier="Public" GetMethodName="GetDataByEnabled" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByEnabled" UserSourceName="GetDataByEnabled">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT IdRetiro, Cantidad, FechaHora, CUI, IdArticulo FROM dbo.RetiroBodega Where Enabled = 1</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="DatabaseBarberShopConnectionString" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertQueryWithCurrentDateTime" Modifier="Public" Name="InsertQueryWithCurrentDateTime" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="InsertQueryWithCurrentDateTime">
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>INSERT INTO [dbo].[RetiroBodega] ([Cantidad], [FechaHora], [Enabled], [CUI], [IdArticulo]) VALUES (@Cantidad, GETDATE(), @Enabled, @CUI, @IdArticulo)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Cantidad" ColumnName="Cantidad" DataSourceName="[C:\USERS\JUANP\SOURCE\REPOS\BARBERSHOPV2\DB\DATABASEBARBERSHOP.MDF].dbo.RetiroBodega" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@Cantidad" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="Cantidad" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Enabled" ColumnName="Enabled" DataSourceName="[C:\USERS\JUANP\SOURCE\REPOS\BARBERSHOPV2\DB\DATABASEBARBERSHOP.MDF].dbo.RetiroBodega" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@Enabled" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="Enabled" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="CUI" ColumnName="CUI" DataSourceName="[C:\USERS\JUANP\SOURCE\REPOS\BARBERSHOPV2\DB\DATABASEBARBERSHOP.MDF].dbo.RetiroBodega" DataTypeServer="varchar(200)" DbType="AnsiString" Direction="Input" ParameterName="@CUI" Precision="0" ProviderType="VarChar" Scale="0" Size="200" SourceColumn="CUI" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="IdArticulo" ColumnName="IdArticulo" DataSourceName="[C:\USERS\JUANP\SOURCE\REPOS\BARBERSHOPV2\DB\DATABASEBARBERSHOP.MDF].dbo.RetiroBodega" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@IdArticulo" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="IdArticulo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="RolEmpleadoTableAdapter" GeneratorDataComponentClassName="RolEmpleadoTableAdapter" Name="RolEmpleado" UserDataComponentName="RolEmpleadoTableAdapter">
             <MainSource>
@@ -611,7 +718,16 @@ SELECT IdRol, Nombre, Descripcion, Enabled FROM RolEmpleado WHERE (IdRol = @IdRo
               <Mapping SourceColumn="Descripcion" DataSetColumn="Descripcion" />
               <Mapping SourceColumn="Enabled" DataSetColumn="Enabled" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="DatabaseBarberShopConnectionString" DbObjectName="dbo.RolEmpleado" DbObjectType="Table" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByEnabled" GetMethodModifier="Public" GetMethodName="GetDataByEnabled" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByEnabled" UserSourceName="GetDataByEnabled">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT IdRol, Nombre, Descripcion FROM dbo.RolEmpleado Where Enabled = 1</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TipoTratamientoTableAdapter" GeneratorDataComponentClassName="TipoTratamientoTableAdapter" Name="TipoTratamiento" UserDataComponentName="TipoTratamientoTableAdapter">
             <MainSource>
@@ -676,7 +792,26 @@ SELECT IdTratamiento, Nombre, DuracionHoras, Costo, Imagen, Enabled FROM TipoTra
               <Mapping SourceColumn="Imagen" DataSetColumn="Imagen" />
               <Mapping SourceColumn="Enabled" DataSetColumn="Enabled" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="DatabaseBarberShopConnectionString" DbObjectName="dbo.TipoTratamiento" DbObjectType="Table" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByEnabled" GetMethodModifier="Public" GetMethodName="GetDataByEnabled" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByEnabled" UserSourceName="GetDataByEnabled">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT IdTratamiento, Nombre, DuracionHoras, Costo, Imagen FROM dbo.TipoTratamiento Where Enabled = 1</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="DatabaseBarberShopConnectionString" DbObjectName="dbo.TipoTratamiento" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="ScalarQueryGetCosto" Modifier="Public" Name="ScalarQueryGetCosto" QueryType="Scalar" ScalarCallRetval="System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="ScalarQueryGetCosto">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT Costo FROM TipoTratamiento Where IdTratamiento = @idtratamiento</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="idtratamiento" ColumnName="IdTratamiento" DataSourceName="[C:\USERS\JUANP\SOURCE\REPOS\BARBERSHOPV2\DB\DATABASEBARBERSHOP.MDF].dbo.TipoTratamiento" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@idtratamiento" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="IdTratamiento" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
         </Tables>
         <Sources />

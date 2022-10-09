@@ -5687,11 +5687,15 @@ SELECT IdArticulo, Nombre, Descripcion, Enabled FROM Articulo WHERE (IdArticulo 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT IdArticulo, Nombre, Descripcion, Enabled FROM dbo.Articulo";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT IdArticulo, Nombre, Descripcion FROM dbo.Articulo Where Enabled = 1";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5713,6 +5717,17 @@ SELECT IdArticulo, Nombre, Descripcion, Enabled FROM Articulo WHERE (IdArticulo 
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual DataSetBarberShop.ArticuloDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            DataSetBarberShop.ArticuloDataTable dataTable = new DataSetBarberShop.ArticuloDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual DataSetBarberShop.ArticuloDataTable GetDataByEnabled() {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
             DataSetBarberShop.ArticuloDataTable dataTable = new DataSetBarberShop.ArticuloDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -6038,12 +6053,17 @@ SELECT IdCliente, NombreCliente, ApellidoCliente, Telefono, Enabled FROM Cliente
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT IdCliente, NombreCliente, ApellidoCliente, Telefono, Enabled FROM dbo.Clie" +
                 "nte";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT IdCliente, NombreCliente, ApellidoCliente, Telefono FROM dbo.Cliente Where" +
+                " Enabled = 1";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6065,6 +6085,17 @@ SELECT IdCliente, NombreCliente, ApellidoCliente, Telefono, Enabled FROM Cliente
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual DataSetBarberShop.ClienteDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            DataSetBarberShop.ClienteDataTable dataTable = new DataSetBarberShop.ClienteDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual DataSetBarberShop.ClienteDataTable GetDataByEnabled() {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
             DataSetBarberShop.ClienteDataTable dataTable = new DataSetBarberShop.ClienteDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -6416,12 +6447,17 @@ SELECT CUI, NombreEmpleado, ApellidoEmpleado, Direccion, Telefono, Enabled, IdRo
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT CUI, NombreEmpleado, ApellidoEmpleado, Direccion, Telefono, Enabled, IdRol" +
                 " FROM dbo.Empleado";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT CUI, NombreEmpleado, ApellidoEmpleado, Direccion, Telefono, IdRol FROM dbo" +
+                ".Empleado Where Enabled = 1";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6443,6 +6479,17 @@ SELECT CUI, NombreEmpleado, ApellidoEmpleado, Direccion, Telefono, Enabled, IdRo
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual DataSetBarberShop.EmpleadoDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            DataSetBarberShop.EmpleadoDataTable dataTable = new DataSetBarberShop.EmpleadoDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual DataSetBarberShop.EmpleadoDataTable GetDataByEnabled() {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
             DataSetBarberShop.EmpleadoDataTable dataTable = new DataSetBarberShop.EmpleadoDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -6869,12 +6916,22 @@ SELECT IdPromocion, Nombre, ProcentajeDescuento, Descripcion, FechaHoraInicio, F
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT IdPromocion, Nombre, ProcentajeDescuento, Descripcion, FechaHoraInicio, Fe" +
                 "chaHoraFin, Enabled, IdTratamiento FROM dbo.Promocion";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT IdPromocion, Nombre, ProcentajeDescuento, Descripcion, FechaHoraInicio, Fe" +
+                "chaHoraFin, IdTratamiento FROM dbo.Promocion Where Enabled = 1";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "SELECT TOP 1 ProcentajeDescuento FROM Promocion Where GETDATE() between FechaHora" +
+                "Inicio and FechaHoraFin";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6896,6 +6953,17 @@ SELECT IdPromocion, Nombre, ProcentajeDescuento, Descripcion, FechaHoraInicio, F
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual DataSetBarberShop.PromocionDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            DataSetBarberShop.PromocionDataTable dataTable = new DataSetBarberShop.PromocionDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual DataSetBarberShop.PromocionDataTable GetDataByEnabled() {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
             DataSetBarberShop.PromocionDataTable dataTable = new DataSetBarberShop.PromocionDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -7083,6 +7151,34 @@ SELECT IdPromocion, Nombre, ProcentajeDescuento, Descripcion, FechaHoraInicio, F
         public virtual int Update(string Nombre, int ProcentajeDescuento, string Descripcion, System.DateTime FechaHoraInicio, System.DateTime FechaHoraFin, int Enabled, global::System.Nullable<int> IdTratamiento, int Original_IdPromocion, string Original_Nombre, int Original_ProcentajeDescuento, System.DateTime Original_FechaHoraInicio, System.DateTime Original_FechaHoraFin, int Original_Enabled, global::System.Nullable<int> Original_IdTratamiento) {
             return this.Update(Nombre, ProcentajeDescuento, Descripcion, FechaHoraInicio, FechaHoraFin, Enabled, IdTratamiento, Original_IdPromocion, Original_Nombre, Original_ProcentajeDescuento, Original_FechaHoraInicio, Original_FechaHoraFin, Original_Enabled, Original_IdTratamiento, Original_IdPromocion);
         }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual global::System.Nullable<int> ScalarQueryGetValidDiscount() {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[2];
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            object returnValue;
+            try {
+                returnValue = command.ExecuteScalar();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            if (((returnValue == null) 
+                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
+                return new global::System.Nullable<int>();
+            }
+            else {
+                return new global::System.Nullable<int>(((int)(returnValue)));
+            }
+        }
     }
     
     /// <summary>
@@ -7256,11 +7352,15 @@ SELECT IdProveedor, Nombre, Telefono, Enabled FROM Proveedor WHERE (IdProveedor 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT IdProveedor, Nombre, Telefono, Enabled FROM dbo.Proveedor";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT IdProveedor, Nombre, Telefono FROM dbo.Proveedor Where Enabled = 1";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7282,6 +7382,17 @@ SELECT IdProveedor, Nombre, Telefono, Enabled FROM Proveedor WHERE (IdProveedor 
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual DataSetBarberShop.ProveedorDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            DataSetBarberShop.ProveedorDataTable dataTable = new DataSetBarberShop.ProveedorDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual DataSetBarberShop.ProveedorDataTable GetDataByEnabled() {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
             DataSetBarberShop.ProveedorDataTable dataTable = new DataSetBarberShop.ProveedorDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -7612,12 +7723,17 @@ SELECT IdRegistro, FechaHora, CostoFinal, Enabled, IdTratamiento, IdCliente, CUI
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT IdRegistro, FechaHora, CostoFinal, Enabled, IdTratamiento, IdCliente, CUI " +
                 "FROM dbo.RegistroAplicacion";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT IdRegistro, FechaHora, CostoFinal, IdTratamiento, IdCliente, CUI FROM dbo." +
+                "RegistroAplicacion Where Enabled = 1";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7639,6 +7755,17 @@ SELECT IdRegistro, FechaHora, CostoFinal, Enabled, IdTratamiento, IdCliente, CUI
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual DataSetBarberShop.RegistroAplicacionDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            DataSetBarberShop.RegistroAplicacionDataTable dataTable = new DataSetBarberShop.RegistroAplicacionDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual DataSetBarberShop.RegistroAplicacionDataTable GetDataByEnabled() {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
             DataSetBarberShop.RegistroAplicacionDataTable dataTable = new DataSetBarberShop.RegistroAplicacionDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -8031,12 +8158,28 @@ SELECT IdCompra, FechaHora, Unidades, CostoTotal, Enabled, IdArticulo, IdProveed
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT IdCompra, FechaHora, Unidades, CostoTotal, Enabled, IdArticulo, IdProveedo" +
                 "r FROM dbo.RegistroCompra";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT IdCompra, FechaHora, Unidades, CostoTotal, IdArticulo, IdProveedor FROM db" +
+                "o.RegistroCompra Where Enabled = 1";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "INSERT INTO [dbo].[RegistroCompra] ([FechaHora], [Unidades], [CostoTotal], [Enabl" +
+                "ed], [IdArticulo], [IdProveedor]) VALUES (GETDATE(), @Unidades, @CostoTotal, @En" +
+                "abled, @IdArticulo, @IdProveedor)";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Unidades", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Unidades", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CostoTotal", global::System.Data.SqlDbType.Float, 8, global::System.Data.ParameterDirection.Input, 0, 0, "CostoTotal", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Enabled", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Enabled", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IdArticulo", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "IdArticulo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IdProveedor", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "IdProveedor", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8058,6 +8201,17 @@ SELECT IdCompra, FechaHora, Unidades, CostoTotal, Enabled, IdArticulo, IdProveed
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual DataSetBarberShop.RegistroCompraDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            DataSetBarberShop.RegistroCompraDataTable dataTable = new DataSetBarberShop.RegistroCompraDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual DataSetBarberShop.RegistroCompraDataTable GetDataByEnabled() {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
             DataSetBarberShop.RegistroCompraDataTable dataTable = new DataSetBarberShop.RegistroCompraDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -8236,6 +8390,44 @@ SELECT IdCompra, FechaHora, Unidades, CostoTotal, Enabled, IdArticulo, IdProveed
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(System.DateTime FechaHora, int Unidades, double CostoTotal, int Enabled, global::System.Nullable<int> IdArticulo, global::System.Nullable<int> IdProveedor, int Original_IdCompra, System.DateTime Original_FechaHora, int Original_Unidades, double Original_CostoTotal, int Original_Enabled, global::System.Nullable<int> Original_IdArticulo, global::System.Nullable<int> Original_IdProveedor) {
             return this.Update(FechaHora, Unidades, CostoTotal, Enabled, IdArticulo, IdProveedor, Original_IdCompra, Original_FechaHora, Original_Unidades, Original_CostoTotal, Original_Enabled, Original_IdArticulo, Original_IdProveedor, Original_IdCompra);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
+        public virtual int InsertQueryWithCurrentDateTime(int Unidades, double CostoTotal, int Enabled, global::System.Nullable<int> IdArticulo, global::System.Nullable<int> IdProveedor) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[2];
+            command.Parameters[0].Value = ((int)(Unidades));
+            command.Parameters[1].Value = ((double)(CostoTotal));
+            command.Parameters[2].Value = ((int)(Enabled));
+            if ((IdArticulo.HasValue == true)) {
+                command.Parameters[3].Value = ((int)(IdArticulo.Value));
+            }
+            else {
+                command.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((IdProveedor.HasValue == true)) {
+                command.Parameters[4].Value = ((int)(IdProveedor.Value));
+            }
+            else {
+                command.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
         }
     }
     
@@ -8421,12 +8613,26 @@ SELECT IdRetiro, Cantidad, FechaHora, Enabled, CUI, IdArticulo FROM RetiroBodega
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT IdRetiro, Cantidad, FechaHora, Enabled, CUI, IdArticulo FROM dbo.RetiroBod" +
                 "ega";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT IdRetiro, Cantidad, FechaHora, CUI, IdArticulo FROM dbo.RetiroBodega Where" +
+                " Enabled = 1";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "INSERT INTO [dbo].[RetiroBodega] ([Cantidad], [FechaHora], [Enabled], [CUI], [IdA" +
+                "rticulo]) VALUES (@Cantidad, GETDATE(), @Enabled, @CUI, @IdArticulo)";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cantidad", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Cantidad", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Enabled", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Enabled", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CUI", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, "CUI", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IdArticulo", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "IdArticulo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8448,6 +8654,17 @@ SELECT IdRetiro, Cantidad, FechaHora, Enabled, CUI, IdArticulo FROM RetiroBodega
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual DataSetBarberShop.RetiroBodegaDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            DataSetBarberShop.RetiroBodegaDataTable dataTable = new DataSetBarberShop.RetiroBodegaDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual DataSetBarberShop.RetiroBodegaDataTable GetDataByEnabled() {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
             DataSetBarberShop.RetiroBodegaDataTable dataTable = new DataSetBarberShop.RetiroBodegaDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -8623,6 +8840,43 @@ SELECT IdRetiro, Cantidad, FechaHora, Enabled, CUI, IdArticulo FROM RetiroBodega
         public virtual int Update(int Cantidad, System.DateTime FechaHora, int Enabled, string CUI, global::System.Nullable<int> IdArticulo, int Original_IdRetiro, int Original_Cantidad, System.DateTime Original_FechaHora, int Original_Enabled, string Original_CUI, global::System.Nullable<int> Original_IdArticulo) {
             return this.Update(Cantidad, FechaHora, Enabled, CUI, IdArticulo, Original_IdRetiro, Original_Cantidad, Original_FechaHora, Original_Enabled, Original_CUI, Original_IdArticulo, Original_IdRetiro);
         }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
+        public virtual int InsertQueryWithCurrentDateTime(int Cantidad, int Enabled, string CUI, global::System.Nullable<int> IdArticulo) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[2];
+            command.Parameters[0].Value = ((int)(Cantidad));
+            command.Parameters[1].Value = ((int)(Enabled));
+            if ((CUI == null)) {
+                command.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[2].Value = ((string)(CUI));
+            }
+            if ((IdArticulo.HasValue == true)) {
+                command.Parameters[3].Value = ((int)(IdArticulo.Value));
+            }
+            else {
+                command.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
+        }
     }
     
     /// <summary>
@@ -8793,11 +9047,15 @@ SELECT IdRol, Nombre, Descripcion, Enabled FROM RolEmpleado WHERE (IdRol = @IdRo
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT IdRol, Nombre, Descripcion, Enabled FROM dbo.RolEmpleado";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT IdRol, Nombre, Descripcion FROM dbo.RolEmpleado Where Enabled = 1";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8819,6 +9077,17 @@ SELECT IdRol, Nombre, Descripcion, Enabled FROM RolEmpleado WHERE (IdRol = @IdRo
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual DataSetBarberShop.RolEmpleadoDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            DataSetBarberShop.RolEmpleadoDataTable dataTable = new DataSetBarberShop.RolEmpleadoDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual DataSetBarberShop.RolEmpleadoDataTable GetDataByEnabled() {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
             DataSetBarberShop.RolEmpleadoDataTable dataTable = new DataSetBarberShop.RolEmpleadoDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -9146,12 +9415,22 @@ SELECT IdTratamiento, Nombre, DuracionHoras, Costo, Imagen, Enabled FROM TipoTra
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT IdTratamiento, Nombre, DuracionHoras, Costo, Imagen, Enabled FROM dbo.Tipo" +
                 "Tratamiento";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT IdTratamiento, Nombre, DuracionHoras, Costo, Imagen FROM dbo.TipoTratamien" +
+                "to Where Enabled = 1";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "SELECT Costo FROM TipoTratamiento Where IdTratamiento = @idtratamiento";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idtratamiento", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "IdTratamiento", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9173,6 +9452,17 @@ SELECT IdTratamiento, Nombre, DuracionHoras, Costo, Imagen, Enabled FROM TipoTra
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual DataSetBarberShop.TipoTratamientoDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            DataSetBarberShop.TipoTratamientoDataTable dataTable = new DataSetBarberShop.TipoTratamientoDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual DataSetBarberShop.TipoTratamientoDataTable GetDataByEnabled() {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
             DataSetBarberShop.TipoTratamientoDataTable dataTable = new DataSetBarberShop.TipoTratamientoDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -9327,6 +9617,35 @@ SELECT IdTratamiento, Nombre, DuracionHoras, Costo, Imagen, Enabled FROM TipoTra
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(string Nombre, int DuracionHoras, double Costo, byte[] Imagen, int Enabled, int Original_IdTratamiento, string Original_Nombre, int Original_DuracionHoras, double Original_Costo, int Original_Enabled) {
             return this.Update(Nombre, DuracionHoras, Costo, Imagen, Enabled, Original_IdTratamiento, Original_Nombre, Original_DuracionHoras, Original_Costo, Original_Enabled, Original_IdTratamiento);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual global::System.Nullable<double> ScalarQueryGetCosto(int idtratamiento) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[2];
+            command.Parameters[0].Value = ((int)(idtratamiento));
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            object returnValue;
+            try {
+                returnValue = command.ExecuteScalar();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            if (((returnValue == null) 
+                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
+                return new global::System.Nullable<double>();
+            }
+            else {
+                return new global::System.Nullable<double>(((double)(returnValue)));
+            }
         }
     }
     

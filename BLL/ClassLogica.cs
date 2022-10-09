@@ -190,5 +190,10 @@ namespace BLL
             _retiroBodega.CustomDeleteQuery(id);
         }
         // Fin seccion Eliminar
+
+
+        // Inicio seccion Update
+
+        // Fin seccion Update
     }
 }

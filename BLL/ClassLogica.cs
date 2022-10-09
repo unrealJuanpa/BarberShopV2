@@ -144,6 +144,51 @@ namespace BLL
         {
             _tipoTratamientos.CustomDeleteQuery(id);
         }
+
+        public void EliminarCliente(int id)
+        {
+            _clientes.CustomDeleteQuery(id);
+        }
+
+        public void EliminarRegistroAplicacion(int id)
+        {
+            _registroAplicacion.CustomDeleteQuery(id);
+        }
+
+        public void EliminarPromocion(int id)
+        {
+            _promociones.CustomDeleteQuery(id);
+        }
+
+        public void EliminarRolEmpleado(int id)
+        {
+            _rolesEmpleados.CustomDeleteQuery(id);
+        }
+
+        public void EliminarEmpleado(string cui)
+        {
+            _empleados.CustomDeleteQuery(cui);
+        }
+
+        public void EliminarProveedor(int id)
+        {
+            _proveedores.CustomDeleteQuery(id);
+        }
+
+        public void EliminarRegistroCompra(int id)
+        {
+            _registroCompra.CustomDeleteQuery(id);
+        }
+
+        public void EliminarArticulo(int id)
+        {
+            _articulos.CustomDeleteQuery(id);
+        }
+
+        public void EliminarRetiroBodega(int id)
+        {
+            _retiroBodega.CustomDeleteQuery(id);
+        }
         // Fin seccion Eliminar
     }
 }

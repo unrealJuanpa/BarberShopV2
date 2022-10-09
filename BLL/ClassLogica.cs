@@ -140,5 +140,10 @@ namespace BLL
 
 
         // Inicio seccion Eliminar
+        public void EliminarTipoTratamiento(int id)
+        {
+            _tipoTratamientos.CustomDeleteQuery(id);
+        }
+        // Fin seccion Eliminar
     }
 }

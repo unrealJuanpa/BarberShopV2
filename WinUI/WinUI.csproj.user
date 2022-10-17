@@ -1,6 +1,54 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Compile Update="ArticuloForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ContenedorClientesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ContenedorRegistroAplicacionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ContenedorRetiroBodegaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="CrearRetiroBodegaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="DashboardAdministrador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="DashboardEmpleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="EmpleadosForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="InformeDeIngresosForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="InformeDeInventarioForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="InformeDePromocionesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="PromocionClienteForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="PromocionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ProveedoresForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="RegistroCompraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="RolEmpleadoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="RUDClienteForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -16,7 +64,13 @@
     <Compile Update="CrearRegistroAplicacionForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="RUDRetiroBodegaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="TipoTratamientoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="TratamientoClienteForm.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

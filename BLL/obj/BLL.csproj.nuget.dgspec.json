@@ -11,7 +11,7 @@
         "projectName": "BLL",
         "projectPath": "C:\\Users\\Acer\\source\\repos\\BarberShopV2\\BLL\\BLL.csproj",
         "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Acer\\Source\\Repos\\BarberShopV2\\BLL\\obj\\",
+        "outputPath": "C:\\Users\\Acer\\source\\repos\\BarberShopV2\\BLL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config",

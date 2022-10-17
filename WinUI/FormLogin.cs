@@ -11,5 +11,17 @@ namespace WinUI
         {
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            PromocionClienteForm promocionClienteForm = new PromocionClienteForm();
+            promocionClienteForm.ShowDialog();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            TratamientoClienteForm tratamientoClienteForm = new TratamientoClienteForm();
+            tratamientoClienteForm.ShowDialog();
+        }
     }
 }
